@@ -40,7 +40,7 @@ col1, col2 = st.columns(2)
 num_applicants = df_original.size
 default_count = df_original[df_original['TARGET'] == 1].shape[0]
 repay_count = df_original[df_original['TARGET'] == 0].shape[0]
-default_rate = (default_loans/num_applicants)*100
+default_rate = (default_count/num_applicants)*100
 
 num_test = df_test.size
 
