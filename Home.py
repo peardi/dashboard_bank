@@ -17,17 +17,6 @@ do_stuff_on_page_load()
 #🛑 Code to set the header
 st.header('Model metrics', anchor=None)
 
-#Set Sidebar Elements
-#🛑 Code to set the Sidebar
-with st.sidebar:
-    st.header('Filters', anchor=None)
-    values = st.slider(
-        'Select the Start and End Years',
-        1950, 2017, (1950, 2017))
-    min_year = values[0]
-    max_year = values[1]
-    st.write('Date Range: '+str(values[0])+'-01-01 to '+str(values[1])+'-01-01')
-
 #🛑 Code to import the dataset
 df_original = pd.read_csv('https://miles-become-a-data-scientist.s3.us-east-2.amazonaws.com/J3/M3/data/train.csv')
 url_test = 'https://drive.google.com/file/d/116hMPDLUX79i964j7JDGukQ2HWn5vZnS/view?usp=drive_link'
@@ -42,9 +31,6 @@ with open('X_test_proc_dff.csv', 'wb') as f:
 
 # Use the file in your Streamlit app
 df_test = pd.read_csv('X_test_proc_dff.csv')
-
-# Display the data
-st.write(df.head())
 
 #👇 Create 4 columns here using the apropriate Streamlit object. Save them as col1, col2, col3 and col4.
 #👇 Reference material can be found here: https://docs.streamlit.io/library/api-reference/layout/st.columns
