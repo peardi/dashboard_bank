@@ -37,7 +37,7 @@ df_test = pd.read_csv('X_test_proc_dff.csv')
 col1, col2 = st.columns(2)
 
 
-num_applicants = df.size
+num_applicants = df_original.size
 default_count = df_original[df_original['TARGET'] == 1].shape[0]
 repay_count = df_original[df_original['TARGET'] == 0].shape[0]
 default_rate = (default_loans/num_applicants)*100
