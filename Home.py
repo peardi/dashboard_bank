@@ -76,5 +76,5 @@ target_distribution = df_original['TARGET'].value_counts()
 
 # Print the results
 st.write('There are {} missing values in the dataframe.'.format(missing_values.sum()))
-st.write('The target variable is distributed as follows:')
+st.write('The target variable is distributed as followss:')
 st.write(target_distribution)
