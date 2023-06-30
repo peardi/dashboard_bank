@@ -64,3 +64,55 @@ target_distribution = df_original['TARGET'].value_counts()
 st.write('There are {} missing values in the dataframe.'.format(missing_values.sum()))
 st.write('The target variable is distributed as followss:')
 st.write(target_distribution)
+
+#Explore the Themes to Sets relationship
+#👇 Create an expander container widget with title "Theme Explorer Sunburst". Remember that everything contained on the container must be idented
+with st.expander(f"Theme Explorer Sunburst",expanded=True):
+
+    #👇 Create spinner that displays "Loading..." while running. 
+    with st.spinner(text="Loading..."):
+        #👇 Paste the code created in activity 3.1 to produce a list of parent themes
+        df['AGE'] =-(df['DAYS_BIRTH'] / 365).astype(int)
+
+        #split into numeric
+        num_features = ['AMT_ANNUITY',
+        'AMT_CREDIT',
+        'AMT_GOODS_PRICE',
+        'CNT_CHILDREN',
+        'CNT_FAM_MEMBERS',
+        'DAYS_EMPLOYED',
+        'DAYS_ID_PUBLISH',
+        'DAYS_LAST_PHONE_CHANGE',
+        'DAYS_REGISTRATION',
+        'DAYS_BIRTH'
+        ]
+
+        #split into categorical
+        cat_features = ['CODE_GENDER',
+        'FLAG_OWN_CAR',
+        'FLAG_OWN_REALTY',
+        'NAME_EDUCATION_TYPE',
+        'NAME_FAMILY_STATUS',
+        'NAME_HOUSING_TYPE',
+        'NAME_INCOME_TYPE',
+        'OCCUPATION_TYPE',
+        'FLAG_EMAIL',
+        'FLAG_PHONE',
+        'FLAG_WORK_PHONE',
+        ]
+        
+
+        #👇 Create a select box widget to gather from the user what Parent Theme is to be output. Pass the following label 'What theme do you want to explore?' as well as the list_parent_themes
+        # Save the user selected option to a chosen_theme variable
+
+        option_cat = st.selectbox('What categorical features do you want to explore?',cat_features)
+        st.write('You selected:', option_cat)
+
+        #👇 Paste the code created in activity 3.1 to produce the df_sunburst DataFrame
+        fig = sns.catplot(data=df, x=option_cat, hue='TARGET', kind='count', height=6, aspect=2)
+        plt.xlabel(option_cat)
+        plt.ylabel('Count')
+        plt.title(f'{option_cat} relationship with Target')
+        
+        #👇 Use a plotly widget from Streamlit to visualize the fig_sunburst plot. Pass the parameter use_container_width =True to ensure the visualization expands to the container width.
+        st.plotly_chart(fig,use_container_width=True)
