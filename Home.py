@@ -111,8 +111,8 @@ with st.expander(f"Theme Explorer Sunburst",expanded=True):
         st.write('You selected:', option_cat)
 
         #👇 Paste the code created in activity 3.1 to produce the df_sunburst DataFrame
-        fig = sns.catplot(data=df_original, x=option_cat, hue='TARGET', kind='count', height=6, aspect=2)
+        ns.catplot(data=df_original, x=option_cat, hue='TARGET', kind='count', height=6, aspect=2)
     
         
         #👇 Use a plotly widget from Streamlit to visualize the fig_sunburst plot. Pass the parameter use_container_width =True to ensure the visualization expands to the container width.
-        st.plotly_chart(fig,use_container_width=True)
+        st.pyplot(plt.gcf())
