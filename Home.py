@@ -93,16 +93,16 @@ target_distribution = df_original['TARGET'].value_counts()
 # Print the results
 st.write('There are {} missing values in the dataframe.'.format(missing_values.sum()))
 st.write('The target variable is distributed as followss:')
-#Target distribution
-labels = ['low', 'high']
-values = df_original.TARGET.value_counts()
-myexplode = [0.1, 0]
-colors= ["#668f43","#bf5746"]
-tar=plt.pie(values, autopct='%1.1f%%', startangle=90, explode=myexplode, colors=colors)
-plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-plt.title('Target distribution')
-plt.legend(labels)
-st.pyplot(tar)
+
+# Create the pie chart
+fig, ax = plt.subplots()
+tar = ax.pie(values, autopct='%1.1f%%', startangle=90, explode=myexplode, colors=colors)
+ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+ax.set_title('Target distribution')
+ax.legend(labels)
+
+# Use a plotly widget from Streamlit to visualize the pie chart
+st.pyplot(fig)
 
 #👇 Create an expander container widget with title "Theme Explorer Sunburst". Remember that everything contained on the container must be idented
 with st.expander(f"Categorical Features relationship with target",expanded=True):
