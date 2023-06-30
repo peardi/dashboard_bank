@@ -58,7 +58,7 @@ num_features = ['AMT_ANNUITY',
         'DAYS_ID_PUBLISH',
         'DAYS_LAST_PHONE_CHANGE',
         'DAYS_REGISTRATION',
-        'DAYS_BIRTH'
+        'AGE'
         ]
 
 #split into categorical
