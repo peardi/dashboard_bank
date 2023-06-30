@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 import streamlit as st
 import requests
 import seaborn as sns
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 #🛑 Code to set the Dashboard format to wide (the content will fill the entire width of the page instead of having wide margins)
 def do_stuff_on_page_load():
