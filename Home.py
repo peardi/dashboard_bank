@@ -7,6 +7,7 @@ from plotly.express.colors import sample_colorscale
 from datetime import datetime, timedelta
 import streamlit as st
 import requests
+import seaborn as sns
 
 #🛑 Code to set the Dashboard format to wide (the content will fill the entire width of the page instead of having wide margins)
 def do_stuff_on_page_load():
