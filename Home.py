@@ -96,6 +96,9 @@ st.write('The target variable is distributed as followss:')
 
 # Create the pie chart
 fig, ax = plt.subplots()
+labels = ['low', 'high']
+values = df_original.TARGET.value_counts()
+myexplode = [0.1, 0]
 tar = ax.pie(values, autopct='%1.1f%%', startangle=90, explode=myexplode, colors=colors)
 ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 ax.set_title('Target distribution')
