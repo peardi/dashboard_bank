@@ -126,8 +126,8 @@ with st.expander(f"Numerical Features relationship with target",expanded=True):
         option_num = st.selectbox('What numerical features do you want to explore?',num_features)
         st.write('You selected:', option_num)
 
-        #👇 Paste the code created in activity 3.1 to produce the df_sunburst DataFrame
-        fig = sns.histplot(df_original, x=option_num, hue='TARGET')
+        fig = plt.figure(figsize=(10, 6))
+        sns.histplot(df, x=option_num, hue='TARGET')
     
         
         #👇 Use a plotly widget from Streamlit to visualize the fig_sunburst plot. Pass the parameter use_container_width =True to ensure the visualization expands to the container width.
