@@ -115,4 +115,4 @@ with st.expander(f"Theme Explorer Sunburst",expanded=True):
     
         
         #👇 Use a plotly widget from Streamlit to visualize the fig_sunburst plot. Pass the parameter use_container_width =True to ensure the visualization expands to the container width.
-        st.pyplot(plt.gcf())
+        st.pyplot()
