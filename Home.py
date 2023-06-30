@@ -72,7 +72,7 @@ with st.expander(f"Theme Explorer Sunburst",expanded=True):
     #👇 Create spinner that displays "Loading..." while running. 
     with st.spinner(text="Loading..."):
         #👇 Paste the code created in activity 3.1 to produce a list of parent themes
-        df['AGE'] =-(df['DAYS_BIRTH'] / 365).astype(int)
+        df_original['AGE'] =-(df_original['DAYS_BIRTH'] / 365).astype(int)
 
         #split into numeric
         num_features = ['AMT_ANNUITY',
@@ -109,7 +109,7 @@ with st.expander(f"Theme Explorer Sunburst",expanded=True):
         st.write('You selected:', option_cat)
 
         #👇 Paste the code created in activity 3.1 to produce the df_sunburst DataFrame
-        fig = sns.catplot(data=df, x=option_cat, hue='TARGET', kind='count', height=6, aspect=2)
+        fig = sns.catplot(data=df_original, x=option_cat, hue='TARGET', kind='count', height=6, aspect=2)
         plt.xlabel(option_cat)
         plt.ylabel('Count')
         plt.title(f'{option_cat} relationship with Target')
